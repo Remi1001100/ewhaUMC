@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TEST</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    .container{
+        margin: 0 auto;
+        padding: 50px;
+
+
+        display: grid;
+        place-items: center;
+    }
+
+    .box1{
+      width: 100px;
+      height: 100px;
+      background-color: purple;
+      margin: 20px;
+      border-radius: 50px;
+
+      animation: infinite ease-in 1s alternate bounce ;
+    }
+
+    @keyframes bounce {
+      0%{position: relative; top: 5px;}
+      85%{height: 100px;}
+      100%{position: relative; top: 250px; height: 85px;}
+    }
+
+
+
+
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box1"></div>
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .container{
+            padding: 25px;
+        }
+        
+        a{
+            color: black;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        .link{
+            margin: 10px;
+        }
+
+
+        .Navbar{
+            height: 4vh;
+            width: 95vw;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logo{
+            height: 100%;
+        }
+
+        .leftbar{
+            float: left;
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+        }
+        .smumc{
+            font-weight: 600;
+        }
+        .rightbar{
+            float:right;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon{
+            height: 90%;
+        }
+
+        @media screen and (max-width: 500px) {
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="Navbar" onclick="location.href='#'">
+            <div class="leftbar" href="#">
+                <img class="logo" src="smumc-logo.webp">
+                <a class="smumc">SMUMC</a>
+
+
+            </div>
+            <div class="rightbar">
+                <a class="link" href="#"> PROJECTS </a>
+                <a class="link" href="#"> MEMBERS </a>
+                <a class="link" href="#"> NOTICE </a>
+                <img class="icon" src="lightmode.png">
+
+            </div>
+        </div>
+    </div>
+
+</body>
