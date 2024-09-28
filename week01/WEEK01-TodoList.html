@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body{
+            margin: 0px;
+        }
+        #container{
+            height: 100vh;
+            width: 100vw;
+            margin: 0px;
+            background-color: rgb(223, 235, 252);            
+            padding-top: 20vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input{
+            height: 35px;
+            width: 70%;
+
+            border: solid rgb(86, 143, 223) 2px;
+            border-radius: 5px;
+        }
+        hr{
+            width:80%;
+            opacity: 40%;
+        }
+        #todolist{
+            width: 70%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 10%;
+        }
+        h3{
+            text-align: center;
+            font-size: 0.9em;
+        }
+        li{
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 13px;
+            padding-bottom: 5px;
+            border-bottom: solid rgba(0, 0, 0, 0.20) 1px;
+        }
+
+        button{
+            background-color:rgba(86, 143, 223, 0.214) ;
+            border: solid rgb(86, 143, 223) 1px;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            size: 120%;
+        }
+
+
+
+
+        
+
+    </style>
+</head>
+<body>
+
+    <script>
+        function PrintTodo(){
+            let todolist = document.getElementById('todolist');
+            let havto = document.getElementById('haveto');
+            let done = document.getElementById('done');
+    
+            let newList = document.createElement('li');
+            let newB = document.createElement('button');
+            let newspan = document.createElement('span');
+            newList.appendChild(newspan);
+            newList.appendChild(newB);
+    
+            let todoInput = document.getElementById('todoInput');
+            newspan.textContent = todoInput.value;
+            newB.textContent = '완료';
+
+            haveto.appendChild(newList);
+            todoInput.value = '';
+
+
+            newList.addEventListener('click', function(){
+                haveto.removeChild(newList);
+                newB.textContent = '삭제'
+                done.appendChild(newList);
+            });
+
+            done.addEventListener('click', function(){
+                done.removeChild(newList);
+            });
+        }
+
+        function enter(){
+            let todoInput = document.getElementById('todoInput');
+            if(window.event.keyCode == 13 && todoInput.value !== ""){
+                PrintTodo();
+            }
+        }
+
+
+    </script>
+
+    <div id="container">
+        <h1> Todo List </h1>
+        <hr>
+
+        <input type="text" name="todo" id="todoInput" placeholder="할 일을 입력해 주세요." onkeyup="enter()">
+
+        <div id="todolist">
+            <div id="haveto">
+                <h3>해야 할 일</h3>
+                <ul id="typedtodo">
+
+                </ul>
+            </div>
+            <div id="done">
+                <h3>완료한 일</h3>
+                <ul id="typedtodo">
+
+                </ul>
+            </div>
+        </div>
+    
+    </div>
+
+
+    
+</body>

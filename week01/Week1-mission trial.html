@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        body{
+            margin: 0px;
+        }
+
+        .container{
+            height: 100vh;
+            width: 100vw;
+            margin: 0px;
+            background-color: rgb(223, 235, 252);            
+            padding-top: 20vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1{
+            text-align: center;
+        }
+        hr{
+            width:80%;
+            opacity: 40%;
+        }
+        input{
+            height: 35px;
+            width: 70%;
+
+            border: solid rgb(86, 143, 223) 2px;
+            border-radius: 5px;
+        }
+
+        .todolist{
+            width: 70%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        h3{
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        #typed{
+            display: block;
+            
+        }
+
+        .tEle{
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <script>
+        TodoList = [];
+        DoneList = [];
+
+
+        function addTodo(){
+            t = document.getElementById('todo').value;
+            TodoList.push(t);
+            PrintTodo();
+        }
+
+        function PrintTodo(){
+            document.getElementById('typed').innerHTML = " ";
+            for(var i = 0; i < TodoList.length; i++){
+                document.getElementById('typed').insertAdjacentHTML('beforeend', '<div class="tEle" id="t' + i + '">' + TodoList[i] + '<button id="complete" onclick="MoveTo">완료</button><br></div>');
+            }
+        }
+
+        function MoveTo(){
+
+
+        }
+
+    </script>
+
+    <div class="container">
+        <h1> UMC Study Plan </h1>
+        <hr>
+        <input type="text" name="todo" id='todo' placeholder="스터디 계획을 작성해 보세요!" onchange='addTodo()'/>
+
+        <div class="todolist">
+            <div class="haveto">
+                <h3>해야 할 일</h3>
+                <div id="typed">
+
+                </div>
+            </div>
+            <div class="done">
+                <h3>해낸 일</h3>
+
+
+            </div>
+        </div>
+    </div>
+</body>
